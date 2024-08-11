@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="app.js"></script>
+  	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="container">
+		<header>
+			<img id="logo" src="../img/logo.png" alt="header">
+		</header>
+	</div>
+
+	<script>
+		$(document).ready(function() {
+			var logo = $("#logo");
+
+			function changeLogo() {
+				if (logo.attr("src").endsWith("logo.png")) {
+					logo.fadeTo(500, 0, function() {
+						logo.attr("src", "../img/logo2.png").fadeTo(500, 1);
+					});
+				} else {
+					logo.fadeTo(500, 0, function() {
+						logo.attr("src", "../img/logo.png").fadeTo(500, 1);
+					});
+				}
+			}
+
+			// Change the logo every 2000 milliseconds (2 seconds)
+			setInterval(changeLogo, 2000);
+		});
+	</script>
+</body>
+</html>
+
